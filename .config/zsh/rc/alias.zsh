@@ -4,24 +4,14 @@
 #==============================================================#
 
 ## common ##
-alias rm='rm-trash'
 alias del='rm -rf'
 alias cp='cp -irf'
 alias mv='mv -i'
 alias ..='cd ..'
 alias zcompile_zshrc='zcompile ~/.zshrc'
 alias rez='exec zsh'
-alias sc='screen'
-alias l='less'
-alias less-plain='LESS="" less'
-alias sudo='sudo -H '
 alias cl='clear'
-alias dircolor='eval `dircolors -b $ZHOMEDIR/dircolors`'
 alias quit='exit'
-alias truecolor-terminal='export COLORTERM=truecolor'
-alias osc52='printf "\x1b]52;;%s\x1b\\" "$(base64 <<< "$(date +"%Y/%m/%d %H:%M:%S"): hello")"'
-alias makej='make -j$(nproc)'
-alias arch='uname -m'
 
 # history
 alias history-mem='fc -rl'
@@ -31,7 +21,7 @@ alias history-import='fc -RI'
 alias la='ls -aF --color=auto'
 alias lla='ls -alF --color=auto'
 alias lal='ls -alF --color=auto'
-alias ls='ls --color=auto'
+alias ls='ls -GF --color=auto'
 alias ll='ls -l --color=auto'
 alias l.='ls -d .[a-zA-Z]* --color=auto'
 
@@ -62,3 +52,9 @@ alias man-ascii-color-code="man 4 console_codes"
 alias t='\tmux -2'
 alias tmux='\tmux -2'
 alias ta='\tmux -2 attach -d'
+
+# git
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push origin'

@@ -4,13 +4,11 @@ set -ue
 
 local current_dir
 current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
-source $current_dir/install_scripts/lib/utilfuncs.sh
+source $current_dir/lib/utilfuncs.sh
 
-"${current_dir}"/install_scripts/dotsinstaller.sh install
+source $current_dir/lib/dotsinstaller/link-to-homedir.sh
 
-print_info ""
 print_info "#####################################################"
-print_info "$(basename "${BASH_SOURCE[0]:-$0}") install finish!!!"
+print_info "$(basename "${BASH_SOURCE[0]:-$0}") link success!!!"
 print_info "#####################################################"
 print_info ""
-}

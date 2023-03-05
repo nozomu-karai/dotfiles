@@ -54,7 +54,7 @@ alias tmux='\tmux -2'
 alias ta='\tmux -2 attach -d'
 
 # git
-alias gs='git status'
+alias g='git status'
 alias ga='git add'
 alias gc='git commit -m'
 alias gp='git push origin'

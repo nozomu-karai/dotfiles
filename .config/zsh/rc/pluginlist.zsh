@@ -60,7 +60,5 @@ zinit wait'!0b' lucid depth=1 \
   atload"source $ZHOMEDIR/rc/pluginconfig/powerlevel10k_atload.zsh" \
   light-mode for @romkatv/powerlevel10k
 
-zinit wait'0a' lucid \
-  if"(( ${ZSH_VERSION%%.*} > 4.4))" \
-  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+zinit wait'0b' lucid \
   light-mode for @zsh-users/zsh-autosuggestions

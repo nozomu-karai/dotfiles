@@ -13,6 +13,14 @@ function main() {
     print_info "$(basename "${BASH_SOURCE[0]:-$0}") link success!!!"
     print_info "#####################################################"
     print_info ""
+
+	source $current_dir/lib/dotsinstaller/install-neovim.sh
+
+	print_info ""
+	print_info "#####################################################"
+	print_info "$(basename "${BASH_SOURCE[0]:-$0}") update finish!!!"
+	print_info "#####################################################"
+	print_info ""
 }
 
 main "$@"

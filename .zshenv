@@ -41,6 +41,7 @@ else
 fi
 export SYSTEMD_EDITOR=$EDITOR
 
+TERM='xterm-256color'
 if builtin command -v dircolors > /dev/null 2>&1 && [ -f "$ZHOMEDIR/dircolors" ]; then
 	eval $(dircolors "$ZHOMEDIR/dircolors")
 	export USER_LS_COLORS=$LS_COLORS

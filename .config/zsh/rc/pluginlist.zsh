@@ -69,6 +69,18 @@ zinit wait'!0b' lucid depth=1 \
 
 
 #--------------------------------#
+# improve cd
+#--------------------------------#
+zinit wait'1' lucid \
+	from"gh-r" as"program" pick"zoxide-*/zoxide" \
+	atload"source $ZHOMEDIR/rc/pluginconfig/zoxide_atload.zsh" \
+	light-mode for @ajeetdsouza/zoxide
+
+zinit wait'1' lucid \
+	light-mode for @Tarrasch/zsh-bd
+
+
+#--------------------------------#
 # fzf
 #--------------------------------#
 zinit wait'0b' lucid \

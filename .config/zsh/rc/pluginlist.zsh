@@ -38,6 +38,13 @@ zinit light-mode for \
 
 
 #--------------------------------#
+# completion
+#--------------------------------#
+zinit wait'0b' lucid \
+  light-mode for @zsh-users/zsh-autosuggestions
+
+
+#--------------------------------#
 # prompt
 #--------------------------------#
 # -> gitstatus(powerlevel10k)
@@ -60,5 +67,28 @@ zinit wait'!0b' lucid depth=1 \
   atload"source $ZHOMEDIR/rc/pluginconfig/powerlevel10k_atload.zsh" \
   light-mode for @romkatv/powerlevel10k
 
+
+#--------------------------------#
+# fzf
+#--------------------------------#
 zinit wait'0b' lucid \
-  light-mode for @zsh-users/zsh-autosuggestions
+	from"gh-r" as"program" \
+	atload"source $ZHOMEDIR/rc/pluginconfig/fzf_atload.zsh" \
+	for @junegunn/fzf
+zinit ice wait'0a' lucid
+zinit snippet https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
+zinit ice wait'1a' lucid 
+zinit snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
+zinit ice wait'0a' lucid as"program"
+zinit snippet https://github.com/junegunn/fzf/blob/master/bin/fzf-tmux
+
+zinit wait'1' lucid blockf nocompletions \
+	from"gh-r" as'program' cp"fd-*/autocomplete/_fd -> _fd" pick'fd*/fd' \
+	atclone'chown -R $(id -nu):$(id -ng) .; zinit creinstall -q sharkdp/fd' \
+	atpull'%atclone' \
+	light-mode for @sharkdp/fd
+
+zinit wait'1' lucid \
+	from"gh-r" as"program" cp"bat/autocomplete/bat.zsh -> _bat" pick"bat*/bat" \
+	atload"export BAT_THEME='Nord'; alias cat=bat" \
+	light-mode for @sharkdp/bat

@@ -14,7 +14,7 @@ function main() {
     print_info "#####################################################"
     print_info ""
 
-	source $current_dir/lib/dotsinstaller/install-neovim.sh
+	source $current_dir/lib/install-neovim.sh
 
 	print_info ""
 	print_info "#####################################################"

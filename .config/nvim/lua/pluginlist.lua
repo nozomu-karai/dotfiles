@@ -30,14 +30,27 @@ local plugins = {
 		},
 
 		-- color scheme
+		-- {
+		-- 		"cocopon/iceberg.vim",
+		-- 		config = function()
+		-- 				vim.cmd("colorscheme iceberg")
+		-- 		end, 
+		-- },
 		{
-				"cocopon/iceberg.vim",
+				"folke/tokyonight.nvim",
 				config = function()
-						vim.cmd("colorscheme iceberg")
+						vim.cmd("colorscheme tokyonight")
 				end, 
 		},
 
-		-- auto comment
+		-- auto commentout
+		{	"tyru/caw.vim" },
+
+		-- lsp & comletion
+		{ "jiangmiao/auto-pairs" },
+
+		-- git
+		{ "airblade/vim-gitgutter" }
 }
 
 require("lazy").setup(plugins, opts)

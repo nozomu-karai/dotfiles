@@ -16,3 +16,4 @@ KEYTIMEOUT=1
 # this setting : ls /usr/local → ls /usr/ → ls /usr/ → ls /
 WORDCHARS='*?_-[]~&;!#$%^(){}<>|'
 
+export DISABLE_DEVICONS=false

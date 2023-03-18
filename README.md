@@ -128,6 +128,10 @@ If you do not want to dirty system
     nvim
     ```
 
+## Font
+
+- [HackGen35](https://github.com/yuru7/HackGen) (Recommend)
+
 ## Components
 
 - zsh

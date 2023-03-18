@@ -47,6 +47,7 @@ local plugins = {
 		{	"tyru/caw.vim" },
 
 		-- lsp & comletion
+		{ "neovim/nvim-lspconfig" },
 		{ "jiangmiao/auto-pairs" },
 		{
 				"hrsh7th/nvim-cmp",
@@ -59,6 +60,15 @@ local plugins = {
 						{ "hrsh7th/cmp-path" },
 						{ "hrsh7th/cmp-cmdline" },
 						{ "L3MON4D3/LuaSnip" }
+				},
+		},
+		{
+				"williamboman/mason.nvim",
+				config = function()
+						require("plugconfig/mason")
+				end,
+				dependencies = {
+						{ "williamboman/mason-lspconfig.nvim" }
 				},
 		},
 

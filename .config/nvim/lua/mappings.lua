@@ -12,3 +12,5 @@ vim.keymap.set('n', 'sl', '<C-w>l')
 
 vim.keymap.set('v', 'y', 'y`]')
 vim.keymap.set('v', 'p', 'p`]')
+vim.keymap.set('v', '<S-h>', '^')
+vim.keymap.set('v', '<S-l>', '$')

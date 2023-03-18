@@ -31,11 +31,7 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-				-- elseif luasnip.expand_or_jumpable() then
-				-- 	luasnip.expand_or_jump()
-			elseif has_words_before() then
-				cmp.complete()
-			else
+		  else
 				fallback()
 			end
 		end, { "i", "s" }),
@@ -43,8 +39,6 @@ cmp.setup({
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
 			else
 				fallback()
 			end
@@ -125,14 +119,3 @@ cmp.setup.cmdline(":", {
 	},
 	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" }, { { name = "cmdline_history" } } }),
 })
-
--- cmp.event:on("menu_opened", function()
--- 	vim.b.copilot_suggestion_hidden = true
--- end)
---
--- cmp.event:on("menu_closed", function()
--- 	vim.b.copilot_suggestion_hidden = false
--- end)
--- autopairs
--- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
--- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

@@ -25,7 +25,7 @@ local plugins = {
 						"MunifTanjim/nui.nvim",
 				},
 				config = function()
-						require("neo-tree").setup()
+						require("plugconfig/neo-tree")
 				end,
 		},
 
@@ -48,9 +48,22 @@ local plugins = {
 
 		-- lsp & comletion
 		{ "jiangmiao/auto-pairs" },
+		{
+				"hrsh7th/nvim-cmp",
+				config = function()
+						require("plugconfig/nvim-cmp")
+				end,
+				dependencies = {
+						{ "hrsh7th/cmp-nvim-lsp" },
+						{ "hrsh7th/cmp-buffer" },
+						{ "hrsh7th/cmp-path" },
+						{ "hrsh7th/cmp-cmdline" },
+						{ "L3MON4D3/LuaSnip" }
+				},
+		},
 
 		-- git
-		{ "airblade/vim-gitgutter" }
+		{ "airblade/vim-gitgutter" },
 }
 
 require("lazy").setup(plugins, opts)

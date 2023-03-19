@@ -13,21 +13,6 @@ cmp.setup({
 	mapping = {
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-		["<Up>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-			else
-				vim.api.nvim_feedkeys(t("<Up>"), "n", true)
-			end
-		end, { "i" }),
-		["<Down>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-			else
-				vim.api.nvim_feedkeys(t("<Down>"), "n", true)
-			end
-		end, { "i" }),
-
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -39,22 +24,6 @@ cmp.setup({
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-
-		["<C-Down>"] = cmp.mapping(function(fallback)
-			if luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-
-		["<C-Up>"] = cmp.mapping(function(fallback)
-			if luasnip.jumpable(-1) then
-				luasnip.jump(-1)
 			else
 				fallback()
 			end
@@ -110,12 +79,6 @@ cmp.setup.cmdline(":", {
 				fallback()
 			end
 		end, { "c" }),
-		["<C-y>"] = {
-			c = cmp.mapping.confirm({ select = false }),
-		},
-		["<C-q>"] = {
-			c = cmp.mapping.abort(),
-		},
-	},
+			},
 	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" }, { { name = "cmdline_history" } } }),
 })

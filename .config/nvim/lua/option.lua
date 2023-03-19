@@ -6,6 +6,7 @@ vim.o.autoindent = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 4
 vim.o.wrap = false
+vim.o.signcolumn = "yes"
 
 vim.o.incsearch = true
 vim.o.hlsearch = true

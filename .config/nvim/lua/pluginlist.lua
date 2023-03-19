@@ -47,7 +47,6 @@ local plugins = {
 		{	"tyru/caw.vim" },
 
 		-- lsp & comletion
-		{ "neovim/nvim-lspconfig" },
 		{ "jiangmiao/auto-pairs" },
 		{
 				"hrsh7th/nvim-cmp",
@@ -68,12 +67,14 @@ local plugins = {
 						require("plugconfig/mason")
 				end,
 				dependencies = {
-						{ "williamboman/mason-lspconfig.nvim" }
+						{ "williamboman/mason-lspconfig.nvim" },
+						{ "neovim/nvim-lspconfig" },
 				},
 		},
 
 		-- git
 		{ "airblade/vim-gitgutter" },
+		{ "tpope/vim-fugitive" },
 }
 
 require("lazy").setup(plugins, opts)

@@ -107,3 +107,4 @@ setopt chase_links           # Symbolic links are converted to linked paths befo
 setopt noflowcontrol
 
 setopt nolistambiguous # Show menu
+

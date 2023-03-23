@@ -1,12 +1,12 @@
 local mason = require("mason")
 mason.setup({
-		ui = {
-				icons = {
-						package_installed = "✓",
-						package_pending = "➜",
-						package_uninstalled = "✗",
-				}
+	ui = {
+		icons = {
+				package_installed = "✓",
+				package_pending = "➜",
+				package_uninstalled = "✗",
 		}
+	}
 })
 
 local on_attach = function(client, bufnr)
@@ -47,7 +47,22 @@ end
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require('mason-lspconfig').setup_handlers({
-		function(server_name)
-				lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
-		end,
+	function(server_name)
+			lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
+	end,
+	["pyright"] = function()
+		lspconfig.pyright.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				python = {
+					venvPath = ".",
+					pythonPath = "./.venv/bin/python",
+					analysis = {
+							extraPaths = {"."}
+					}
+				}
+			}
+		})
+	end,
 })

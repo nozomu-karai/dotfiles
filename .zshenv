@@ -24,6 +24,7 @@ path=(
 	$HOME/.bin(N-/)
 	$HOME/bin(N-/)
 	$HOME/.local/bin(N-/)
+	$HOME/.pyenv/bin(N-/)
 	$path
 )
 export PATH
@@ -55,5 +56,14 @@ fi
 if [ -f "$ZHOMEDIR/.zshenv.local" ]; then
 	source "$ZHOMEDIR/.zshenv.local"
 fi
+if [ -d "$HOME/homebrew" ]; then
+	eval "$(homebrew/bin/brew shellenv)"
+	export HOMEBREW_CACHE=~/homebrew/cache
+fi
+if [ -d "$HOME/.pyenv" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  eval "$(pyenv init -)"
+fi
+  
 
 export PS4='+%N:%i> '

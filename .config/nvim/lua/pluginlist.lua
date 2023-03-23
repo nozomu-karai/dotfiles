@@ -15,18 +15,18 @@ local plugins = {
 		-- filer
 		{ "nvim-lua/popup.nvim" },
 		{
-				"nvim-neo-tree/neo-tree.nvim",
-				keys = {
-						{ "<leader>t", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
-				},
-				dependencies = {
-						"nvim-lua/plenary.nvim",
-						"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-						"MunifTanjim/nui.nvim",
-				},
-				config = function()
-						require("plugconfig/neo-tree")
-				end,
+			"nvim-neo-tree/neo-tree.nvim",
+			keys = {
+					{ "<leader>t", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+			},
+			dependencies = {
+					"nvim-lua/plenary.nvim",
+					"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+					"MunifTanjim/nui.nvim",
+			},
+			config = function()
+					require("plugconfig/neo-tree")
+			end,
 		},
 
 		-- color scheme
@@ -37,39 +37,39 @@ local plugins = {
 		-- 		end, 
 		-- },
 		{
-				"folke/tokyonight.nvim",
-				config = function()
-						vim.cmd("colorscheme tokyonight")
-				end, 
+			"folke/tokyonight.nvim",
+			config = function()
+					vim.cmd("colorscheme tokyonight")
+			end, 
 		},
 
 		-- auto commentout
-		{	"tyru/caw.vim" },
+		{ "tyru/caw.vim" },
 
 		-- lsp & comletion
 		{ "jiangmiao/auto-pairs" },
 		{
-				"hrsh7th/nvim-cmp",
-				config = function()
-						require("plugconfig/nvim-cmp")
-				end,
-				dependencies = {
-						{ "hrsh7th/cmp-nvim-lsp" },
-						{ "hrsh7th/cmp-buffer" },
-						{ "hrsh7th/cmp-path" },
-						{ "hrsh7th/cmp-cmdline" },
-						{ "L3MON4D3/LuaSnip" }
-				},
+			"hrsh7th/nvim-cmp",
+			config = function()
+					require("plugconfig/nvim-cmp")
+			end,
+			dependencies = {
+					{ "hrsh7th/cmp-nvim-lsp" },
+					{ "hrsh7th/cmp-buffer" },
+					{ "hrsh7th/cmp-path" },
+					{ "hrsh7th/cmp-cmdline" },
+					{ "L3MON4D3/LuaSnip" }
+			},
 		},
 		{
-				"williamboman/mason.nvim",
-				config = function()
-						require("plugconfig/mason")
-				end,
-				dependencies = {
-						{ "williamboman/mason-lspconfig.nvim" },
-						{ "neovim/nvim-lspconfig" },
-				},
+			"williamboman/mason.nvim",
+			config = function()
+					require("plugconfig/mason")
+			end,
+			dependencies = {
+					{ "williamboman/mason-lspconfig.nvim" },
+					{ "neovim/nvim-lspconfig" },
+			},
 		},
 
 		-- git

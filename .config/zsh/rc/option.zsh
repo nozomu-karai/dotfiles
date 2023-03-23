@@ -108,4 +108,4 @@ setopt noflowcontrol
 
 setopt nolistambiguous # Show menu
 
-set -o emacs
+setopt emacs # use emacs shortcut

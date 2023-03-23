@@ -50,4 +50,19 @@ require('mason-lspconfig').setup_handlers({
 		function(server_name)
 				lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
 		end,
+		["pyright"] = function()
+                                lspconfig.pyright.setup({
+                                                capabilities = capabilities,
+                                                on_attach = on_attach,
+                                                settings = {
+                                                                python = {
+                                                                                venvPath = ".",
+                                                                                pythonPath = "./.venv/bin/python",
+                                                                                analysis = {
+                                                                                                extraPaths = {"."}
+                                                                                }
+                                                                }
+                                                }
+                                })
+                end,
 })

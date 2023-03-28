@@ -15,7 +15,7 @@ function main() {
     print_info ""
 
 	source $current_dir/lib/install-neovim.sh
-	# source $current_dir/lib/install-font.sh
+	source $current_dir/lib/install-font.sh
 
 	print_info ""
 	print_info "#####################################################"

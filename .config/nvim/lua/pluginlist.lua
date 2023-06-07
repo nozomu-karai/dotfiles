@@ -45,6 +45,7 @@ local plugins = {
 
 		-- auto commentout
 		{ "tyru/caw.vim" },
+		{ "lukas-reineke/indent-blankline.nvim" },
 
 		-- lsp & comletion
 		{ "jiangmiao/auto-pairs" },
@@ -58,7 +59,11 @@ local plugins = {
 					{ "hrsh7th/cmp-buffer" },
 					{ "hrsh7th/cmp-path" },
 					{ "hrsh7th/cmp-cmdline" },
-					{ "L3MON4D3/LuaSnip" }
+					{ "L3MON4D3/LuaSnip" },
+					{
+					  "zbirenbaum/copilot-cmp",
+					  config = true,
+					},
 			},
 		},
 		{
@@ -75,6 +80,18 @@ local plugins = {
 		-- git
 		{ "airblade/vim-gitgutter" },
 		{ "tpope/vim-fugitive" },
+
+		-- AI completion
+		{
+			"zbirenbaum/copilot.lua",
+			-- cmd = { "Copilot" },
+			event = "InsertEnter",
+			config = function()
+				vim.defer_fn(function()
+					require("plugconfig/copilot")
+				end, 100)
+			end,
+		},
 }
 
 require("lazy").setup(plugins, opts)

@@ -45,7 +45,11 @@ local plugins = {
 
 		-- auto commentout
 		{ "tyru/caw.vim" },
-		{ "lukas-reineke/indent-blankline.nvim" },
+		{ "lukas-reineke/indent-blankline.nvim",
+		  config = function()
+			  		require("ibl").setup()
+		  end,
+		},
 
 		-- lsp & comletion
 		{ "jiangmiao/auto-pairs" },

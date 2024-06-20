@@ -61,14 +61,14 @@ require('mason-lspconfig').setup_handlers({
 					analysis = {
 							extraPaths = {"."}
 					}
-				},
-				python = {
-					venvPath = ".",
-					pythonPath = "./venv/bin/python",
-					analysis = {
-							extraPaths = {"."}
-					}
 				}
+				-- python = {
+				-- 	venvPath = ".",
+				-- 	pythonPath = "./venv/bin/python",
+				-- 	analysis = {
+				-- 			extraPaths = {"."}
+				-- 	}
+				-- }
 			}
 		})
 	end,

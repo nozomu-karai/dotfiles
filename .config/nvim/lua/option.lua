@@ -16,3 +16,5 @@ vim.o.clipboard = "unnamed"
 
 vim.o.mouse = "a"
 vim.o.backspace = "indent,eol,start"
+
+vim.opt.clipboard = "unnamedplus"

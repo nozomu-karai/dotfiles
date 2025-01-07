@@ -69,15 +69,10 @@ function link_to_homedir() {
 	current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
 	local dotfiles_dir
 	dotfiles_dir="$(builtin cd "$current_dir" && git rev-parse --show-toplevel)"
-	linkignore=()
-	if [[ -e "$dotfiles_dir/.linkignore" ]]; then
-		mapfile -t linkignore <"$dotfiles_dir/.linkignore"
-	fi
 	if [[ "$HOME" != "$dotfiles_dir" ]]; then
 		for f in "$dotfiles_dir"/.??*; do
 			local f_filename
 			f_filename=$(basename "$f")
-			[[ ${linkignore[*]} =~ $f_filename ]] && continue
 			[[ "$f_filename" == ".config" ]] && link_config_dir "$dotfiles_dir" "$backupdir" && continue
 			backup_and_link "$f" "$HOME" "$backupdir"
 		done

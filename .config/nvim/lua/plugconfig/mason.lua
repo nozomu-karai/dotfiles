@@ -44,6 +44,22 @@ local on_attach = function(client, bufnr)
 	-- buf_set_keymap("n", "[_Lsp]f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
+local function get_python_path(workspace)
+	local venv = workspace .. '/.venv/bin/python'
+	if vim.fn.filereadable(venv) == 1 then
+		return venv
+	end
+
+	if os.getenv("CONDA_PREFIX") then
+		local conda_python = os.getenv("CONDA_PREFIX") .. '/bin/python'
+		if vim.fn.filereadable(conda_python) == 1 then
+			return conda_python
+		end
+	end
+
+	return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
+end
+
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require('mason-lspconfig').setup_handlers({
@@ -54,10 +70,15 @@ require('mason-lspconfig').setup_handlers({
 		lspconfig.pyright.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			before_init = function(_, config)
+				config.settings.python.pythonPath = get_python_path(vim.fn.getcwd())
+			end,
 			settings = {
 				python = {
-					venvPath = ".",
-					pythonPath = "./.venv/bin/python",
+					-- venvPath = ".",
+					-- pythonPath = function()
+					-- 	return get_python_path(vim.fn.getwcd())
+					-- end,
 					analysis = {
 							extraPaths = {"."}
 					}

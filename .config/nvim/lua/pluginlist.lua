@@ -28,6 +28,18 @@ local plugins = {
 					require("plugconfig/neo-tree")
 			end,
 		},
+		{
+			"nvim-telescope/telescope.nvim",
+			tag = "0.1.8",
+			dependencies = {
+					{ "nvim-lua/plenary.nvim" },
+					{ "BurntSushi/ripgrep" },
+					{ "nvim-treesitter/nvim-treesitter" }
+			},
+			config = function()
+					require("plugconfig/telescope")
+			end,
+		},
 
 		-- color scheme
 		-- {

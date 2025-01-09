@@ -73,6 +73,9 @@ fi
 if [ -d "$HOME/.rye" ]; then
 	source "$HOME/.rye/env"
 fi
+if [ -d "$HOME/.cargo" ]; then
+	source "$HOME/.cargo/bin"
+fi
 
 load_conda() {
     # Condaのインストールパスを定義
@@ -87,3 +90,4 @@ load_conda() {
 }
 
 export PS4='+%N:%i> '
+. "$HOME/.cargo/env"

@@ -42,13 +42,13 @@ local plugins = {
     },
 
     -- color scheme
-		--   {
-		-- "cocopon/iceberg.vim",
-		-- lazy = false,
-		-- config = function()
-		-- 		vim.cmd("colorscheme iceberg")
-		-- end,
-		--   },
+    --   {
+    -- "cocopon/iceberg.vim",
+    -- lazy = false,
+    -- config = function()
+    -- 		vim.cmd("colorscheme iceberg")
+    -- end,
+    --   },
     -- {
     --     "folke/tokyonight.nvim",
     --     lazy = false,
@@ -60,23 +60,31 @@ local plugins = {
     --         vim.cmd("colorscheme tokyonight")
     --     end,
     -- },
-	{
-		"sainnhe/everforest",
-		lazy = false,
-		config = function()
-			vim.g.everforest_background = "medium" -- "hard", "medium", "soft"
-			vim.cmd("colorscheme everforest")
-		end,
-	},
+    {
+        "sainnhe/everforest",
+        lazy = false,
+        config = function()
+            vim.g.everforest_background = "medium" -- "hard", "medium", "soft"
+            vim.cmd("colorscheme everforest")
+        end,
+    },
 
     -- auto commentout
     { "tyru/caw.vim" },
+	{ "Vimjas/vim-python-pep8-indent" },
     {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
             require("ibl").setup()
         end,
     },
+    -- {
+    --     "shellRaining/hlchunk.nvim",
+    --     event = { "BufReadPre", "BufNewFile" },
+    --     config = function()
+    --         require("plugconfig/hlchunk")
+    --     end,
+    -- },
 
     -- lsp & comletion
     { "jiangmiao/auto-pairs" },
@@ -92,7 +100,7 @@ local plugins = {
             { "hrsh7th/cmp-cmdline" },
             { "L3MON4D3/LuaSnip" },
             {
-				"zbirenbaum/copilot-cmp",
+                "zbirenbaum/copilot-cmp",
                 config = true,
             },
         },
@@ -124,27 +132,27 @@ local plugins = {
         end,
     },
 
-	-- UI
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons", opt = ture },
-		config = function()
-			require("lualine").setup()
-		end,
+    -- UI
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons", opt = ture },
+        config = function()
+            require("lualine").setup()
+        end,
     },
-	{
-		"romgrk/barbar.nvim",
-		dependencies = {
-			{ "lewis6991/gitsigns.nvim" },
-			{ "nvim-tree/nvim-web-devicons" }
-		},
-		init = function()
-			vim.g.barbar_auto_setup = false
-		end,
-		config = function()
-			require("plugconfig/barbar")
-		end,
-	}
+    {
+        "romgrk/barbar.nvim",
+        dependencies = {
+            { "lewis6991/gitsigns.nvim" },
+            { "nvim-tree/nvim-web-devicons" },
+        },
+        init = function()
+            vim.g.barbar_auto_setup = false
+        end,
+        config = function()
+            require("plugconfig/barbar")
+        end,
+    },
 }
 
 require("lazy").setup(plugins, opts)

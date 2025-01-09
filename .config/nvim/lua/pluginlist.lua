@@ -42,24 +42,32 @@ local plugins = {
     },
 
     -- color scheme
+		--   {
+		-- "cocopon/iceberg.vim",
+		-- lazy = false,
+		-- config = function()
+		-- 		vim.cmd("colorscheme iceberg")
+		-- end,
+		--   },
     -- {
-    -- 		"cocopon/iceberg.vim",
-    -- 		lazy = false,
-    -- 		config = function()
-    -- 				vim.cmd("colorscheme iceberg")
-    -- 		end,
+    --     "folke/tokyonight.nvim",
+    --     lazy = false,
+    --     opts = {
+    --         style = "moon", -- "storm", "moon", "night"
+    --     },
+    --     config = function(_, opts)
+    --         require("tokyonight").setup(opts)
+    --         vim.cmd("colorscheme tokyonight")
+    --     end,
     -- },
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        opts = {
-            style = "moon", -- "storm", "moon", "night"
-        },
-        config = function(_, opts)
-            require("tokyonight").setup(opts)
-            vim.cmd("colorscheme tokyonight")
-        end,
-    },
+	{
+		"sainnhe/everforest",
+		lazy = false,
+		config = function()
+			vim.g.everforest_background = "medium" -- "hard", "medium", "soft"
+			vim.cmd("colorscheme everforest")
+		end,
+	},
 
     -- auto commentout
     { "tyru/caw.vim" },
@@ -84,7 +92,7 @@ local plugins = {
             { "hrsh7th/cmp-cmdline" },
             { "L3MON4D3/LuaSnip" },
             {
-                "zbirenbaum/copilot-cmp",
+				"zbirenbaum/copilot-cmp",
                 config = true,
             },
         },
@@ -115,6 +123,28 @@ local plugins = {
             end, 100)
         end,
     },
+
+	-- UI
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons", opt = ture },
+		config = function()
+			require("lualine").setup()
+		end,
+    },
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			{ "lewis6991/gitsigns.nvim" },
+			{ "nvim-tree/nvim-web-devicons" }
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		config = function()
+			require("plugconfig/barbar")
+		end,
+	}
 }
 
 require("lazy").setup(plugins, opts)

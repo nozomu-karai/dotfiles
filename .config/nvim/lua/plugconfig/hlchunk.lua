@@ -21,24 +21,24 @@ require("hlchunk").setup({
         duration = 0,
         delay = 0,
     },
-	indent = {
-		enable = true,
-		priority = 10,
-		style = { vim.api.nvim_get_hl(0, { name = "Whitespace" }) },
-		use_treesitter = false,
-		chars = { "│" },
-		ahead_lines = 5,
-		delay = 100,
-	},
-	line_num = {
-		enable = false,
-		style = "#806d9c",
-		priority = 10,
-		use_treesitter = false,
-	},
-	blank = {
-		enable = false,
-		priority = 9,
-    	chars = { "․" },
-	}
+    indent = {
+        enable = true,
+        priority = 10,
+        style = { vim.api.nvim_get_hl(0, { name = "Whitespace" }) },
+        use_treesitter = false,
+        chars = { "│" },
+        ahead_lines = 5,
+        delay = 100,
+    },
+    line_num = {
+        enable = false,
+        style = "#806d9c",
+        priority = 10,
+        use_treesitter = false,
+    },
+    blank = {
+        enable = false,
+        priority = 9,
+        chars = { "․" },
+    },
 })

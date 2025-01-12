@@ -71,7 +71,7 @@ local plugins = {
 
     -- auto commentout
     { "tyru/caw.vim" },
-	{ "Vimjas/vim-python-pep8-indent" },
+    { "Vimjas/vim-python-pep8-indent" },
     {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
@@ -151,6 +151,13 @@ local plugins = {
         end,
         config = function()
             require("plugconfig/barbar")
+        end,
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        version = "*",
+        config = function()
+            require("plugconfig/toggleterm")
         end,
     },
 }

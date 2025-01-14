@@ -11,3 +11,9 @@ vim.o.fileencodings = "ucs-bom,utf-8,euc-jp,iso-2022-jp,cp932,sjis,latin1"
 vim.o.fileformats = "unix,dos,mac"
 
 vim.opt.shell = "/bin/zsh"
+
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+    pattern = "*",
+    command = "checktime",
+})

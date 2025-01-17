@@ -1,0 +1,31 @@
+[project]
+name = "python-template"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "n-karai", email = "karai_nozomu@cyberagent.co.jp" }
+]
+dependencies = []
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/python_template"]
+
+[tool.ruff]
+exclude = [".vnev", ".git", "__pycache__"]
+lint.ignore = ["E203", "E501", "E722", "F403", "F405"]
+lint.select = ["C9", "E", "F", "W", "I"]
+line-length = 120
+

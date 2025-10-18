@@ -3,7 +3,16 @@ require("base")
 -- ===============================
 
 require("option")
-require("pluginlist")
+
+-- VSCode-Neovim integration
+if vim.g.vscode then
+    -- VSCode extension
+    require("vscode")
+else
+    -- Ordinary Neovim
+    require("pluginlist")
+end
+
 require("mappings")
 
 -- ===============================

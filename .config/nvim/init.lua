@@ -7,7 +7,7 @@ require("option")
 -- VSCode-Neovim integration
 if vim.g.vscode then
     -- VSCode extension
-    require("vscode")
+    require("vscode-setting")
 else
     -- Ordinary Neovim
     require("pluginlist")
